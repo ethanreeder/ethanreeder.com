@@ -5,9 +5,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const essay_template = path.resolve(`./src/templates/essay-template.js`)
-  const project = path.resolve(`./src/templates/project-template.js`)
+  // const project = path.resolve(`./src/templates/project-template.js`)
 
-  const blogPostQueryResult = 1
+  // const blogPostQueryResult = 1
 
   // TODO: MIGHT HAVE TO WRITE TWO QUERIES
   const essayQueryResult = await graphql(
@@ -33,7 +33,7 @@ exports.createPages = async ({ graphql, actions }) => {
     `
   )
 
-  const projectQueryResult = 3
+  // const projectQueryResult = 3
 
   if (essayQueryResult.errors) {
     throw essayQueryResult.errors
