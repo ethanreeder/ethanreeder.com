@@ -4,8 +4,13 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
-  const result = await graphql(
+  const essay_template = path.resolve(`./src/templates/essay-template.js`)
+  const project = path.resolve(`./src/templates/project-template.js`)
+
+  const blogPostQueryResult = 1
+
+  // TODO: MIGHT HAVE TO WRITE TWO QUERIES
+  const essayQueryResult = await graphql(
     `
       {
         allMarkdownRemark(
@@ -19,6 +24,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                type
               }
             }
           }
@@ -27,26 +33,43 @@ exports.createPages = async ({ graphql, actions }) => {
     `
   )
 
-  if (result.errors) {
-    throw result.errors
+  const projectQueryResult = 3
+
+  if (essayQueryResult.errors) {
+    throw essayQueryResult.errors
   }
 
-  // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges
+  // Create essays posts pages.
+  const essays = essayQueryResult.data.allMarkdownRemark.edges
 
-  posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
+  // For each post retrieved, create a page
+  essays.forEach((essay, index) => {
+    const previous = index === essays.length - 1 ? null : essays[index + 1].node
+    const next = index === 0 ? null : essays[index - 1].node
 
-    createPage({
-      path: post.node.fields.slug,
-      component: blogPost,
-      context: {
-        slug: post.node.fields.slug,
-        previous,
-        next,
-      },
-    })
+    if (essay.node.frontmatter.type === "essay") {
+      createPage({
+        path: essay.node.fields.slug,
+        component: essay_template,
+        context: {
+          slug: essay.node.fields.slug,
+          previous,
+          next,
+        },
+      })
+    }
+
+    // else if (post.node.frontmatter.type === "project") {
+    //   createPage({
+    //     path: post.node.fields.slug,
+    //     component: project,
+    //     context: {
+    //       slug: post.node.fields.slug,
+    //       previous,
+    //       next,
+    //     },
+    //   })
+    // }
   })
 }
 

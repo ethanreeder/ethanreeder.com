@@ -1,6 +1,8 @@
 ---
 title: Why Write?
 date: "2020-05-22T09:00:37.121Z"
+description: Writing is boring, it's nondifferentiated and too many people do it, it's oversaturated no one reads it, and you're not that smart.
+type: essay
 ---
 
 A lot of people do it. Your stuff isn't going to get written

@@ -31,7 +31,7 @@ type Data = {
   }
 }
 
-const BlogIndex = ({ data, location }: PageProps<Data>) => {
+const EssayIndex = ({ data, location }: PageProps<Data>) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
@@ -69,7 +69,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
   )
 }
 
-export default BlogIndex
+export default EssayIndex
 
 export const pageQuery = graphql`
   query {
