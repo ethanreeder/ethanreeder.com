@@ -1,13 +1,11 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
-import { rhythm } from "../utils/typography"
 
 import Bio from "../components/bio"
-import SEO from "../components/seo"
-
 import Layout from "../layouts/layout"
-import Sidebar from "../containers/sidebar"
+import SEO from "../components/seo"
+import { rhythm } from "../utils/typography"
 
 type Data = {
   site: {
@@ -33,7 +31,7 @@ type Data = {
   }
 }
 
-const EssayIndex = ({ data, location }: PageProps<Data>) => {
+const ProjectIndex = ({ data, location }: PageProps<Data>) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
@@ -71,7 +69,7 @@ const EssayIndex = ({ data, location }: PageProps<Data>) => {
   )
 }
 
-export default EssayIndex
+export default ProjectIndex
 
 export const pageQuery = graphql`
   query {

@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Ethan Reeder`,
     author: {
-      name: `Kyle Mathews`,
+      name: `Ethan Reeder`,
       summary: `who lives and works in San Francisco building useful things.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `A site presenting my thought and work.`,
+    siteUrl: `https://ethanreeder.com`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `ethanreeder`,
     },
   },
   plugins: [
@@ -26,13 +26,13 @@ module.exports = {
         name: `essays`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: `${__dirname}/content/projects`,
-    //     name: `projects`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/projects`,
+        name: `projects`,
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

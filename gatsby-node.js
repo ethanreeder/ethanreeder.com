@@ -1,6 +1,10 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+// export const wrapPageElement = ({}) => {
+//   return (<div></div>)
+// }
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -70,6 +74,7 @@ exports.createPages = async ({ graphql, actions }) => {
     //     },
     //   })
     // }
+
   })
 }
 
