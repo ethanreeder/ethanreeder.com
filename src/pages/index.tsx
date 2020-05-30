@@ -1,7 +1,7 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
-import Sidebar from "../containers/sidebar"
+import Sidebar from "../layouts/sidebar"
 
 import Bio from "../components/bio"
 import Layout from "../layouts/layout"

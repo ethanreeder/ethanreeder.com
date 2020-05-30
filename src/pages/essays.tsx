@@ -2,12 +2,13 @@
 import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
+import Color from "../constants/color"
 
 import Bio from "../components/bio"
 import SEO from "../components/seo"
 
 import Layout from "../layouts/layout"
-import Sidebar from "../containers/sidebar"
+import Sidebar from "../layouts/sidebar"
 
 type Data = {
   site: {
@@ -39,25 +40,22 @@ const EssayIndex = ({ data, location }: PageProps<Data>) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
-      <Bio />
+      <SEO title="Resonance essay project" />
+      <h1>resonance essay project</h1>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
           <article key={node.fields.slug}>
             <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
+              <h3 style={{ marginBottom: rhythm(1 / 8), }}>
                 <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                   {title}
                 </Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
+              <text style={styles.dateTextStyle}>{node.frontmatter.date}</text>
             </header>
             <section>
+              {/*<text style={styles.descriptionTextStyle}>{node.frontmatter.description}</text>*/}
               <p
                 dangerouslySetInnerHTML={{
                   __html: node.frontmatter.description || node.excerpt,
@@ -97,3 +95,16 @@ export const pageQuery = graphql`
     }
   }
 `
+
+const styles = {
+  dateTextStyle: {
+    fontSize: 12,
+    color: Color.ERMidGray,
+    // fontFamily:
+  },
+  descriptionTextStyle: {
+    fontSize: 12,
+    color: Color.ERMidGray,
+    // fontFamily:
+  }
+}

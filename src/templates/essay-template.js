@@ -6,6 +6,8 @@ import Layout from "../layouts/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
+import EmailListForm from "../components/email-list-form"
+
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
@@ -45,6 +47,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         />
         <footer>
           <Bio />
+          {/*<EmailListForm/>*/}
         </footer>
       </article>
 

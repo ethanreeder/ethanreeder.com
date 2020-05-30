@@ -5,7 +5,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 //   return (<div></div>)
 // }
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ page, graphql, actions }) => {
   const { createPage } = actions
 
   const essay_template = path.resolve(`./src/templates/essay-template.js`)
@@ -74,6 +74,12 @@ exports.createPages = async ({ graphql, actions }) => {
     //     },
     //   })
     // }
+
+    // page.matchPath is a key that's used for matching pages only on client
+    if (page.path.match(/^\/app/)) {
+      page.matchPath = "/app/*"
+      createPage(page)
+    }
 
   })
 }
