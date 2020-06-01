@@ -52,7 +52,7 @@ const Layout = ({ location, title, children }) => {
   }
   return (
     <div style={{ display: `flex`, flexDirection: `row`, minHeight: `100%` }}>
-      <div style={{ display: `flex`, width: rhythm(24), justifyContent: 'flex-end', minHeight: `100%` }}>
+      <div style={{ display: `flex`, width: rhythm(20), justifyContent: 'flex-end', minHeight: `100%` }}>
         <div style={{ marginTop: rhythm(1), position: `fixed`, }}>
           <Sidebar location={location}/>
         </div>
@@ -64,7 +64,7 @@ const Layout = ({ location, title, children }) => {
       </div>
 
 
-      <div style={{ maxWidth: rhythm(24), padding: `${rhythm(1.5)} ${rhythm(3 / 4)}` }}>
+      <div style={{ maxWidth: rhythm(32), padding: `${rhythm(1.5)} ${rhythm(3 / 4)}` }}>
         {/*<header>{header}</header>*/}
         <main>{children}</main>
         <footer>© Ethan Reeder (2019 - {new Date().getFullYear()}).  All rights reserved.</footer>

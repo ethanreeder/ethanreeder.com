@@ -45,11 +45,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             marginBottom: rhythm(1),
           }}
         />
-        <footer>
-          <Bio />
-          {/*<EmailListForm/>*/}
-        </footer>
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
       </article>
+
+      <Bio />
 
       <nav>
         <ul
@@ -77,6 +80,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </li>
         </ul>
       </nav>
+      <footer>
+        <EmailListForm/>
+      </footer>
     </Layout>
   )
 }
@@ -84,7 +90,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query EssayBySlug($slug: String!) {
     site {
       siteMetadata {
         title
@@ -96,6 +102,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        type
         date(formatString: "MMMM DD, YYYY")
         description
       }

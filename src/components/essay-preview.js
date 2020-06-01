@@ -4,7 +4,7 @@ import { Link, navigate } from "gatsby"
 import { rhythm, scale } from "../utils/typography"
 import Color from "../constants/color"
 
-class StandardButton extends React.Component {
+class EssayPreview extends React.Component {
   constructor(props) {
     super(props)
 
@@ -40,8 +40,10 @@ class StandardButton extends React.Component {
             color: this.state.mouseOver ? 'white' : Color.ERBlack
           }}
         >
-          {this.props.text}
+          {this.props.title}
         </text>
+        <text>{this.props.date}</text>
+        <text>{this.props.description}</text>
       </div>
     )
   }
@@ -49,4 +51,4 @@ class StandardButton extends React.Component {
 
 }
 
-export default StandardButton
+export default EssayPreview

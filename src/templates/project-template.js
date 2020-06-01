@@ -1,28 +1,87 @@
 import React from "react"
-import { Link, graphql} from "gatsby"
+import { Link, graphql } from "gatsby"
 
+import Bio from "../components/bio"
+import Layout from "../layouts/layout"
+import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
+import EmailListForm from "../components/email-list-form"
+
 const ProjectTemplate = ({ data, pageContext, location }) => {
-  // const project = data.markdownRemark
-  // siteTitle = data.site.siteMetadata.title
+  const post = data.markdownRemark
+  const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
 
   return (
-    <Layout>
+    <Layout location={location} title={siteTitle}>
       <SEO
-        title='asdf'
-        description='asdf'
+        title={post.frontmatter.title}
+        description={post.frontmatter.description || post.excerpt}
       />
-      <div>
+      <article>
         <header>
-          <h1>
-            project title
+          <h1
+            style={{
+              marginTop: rhythm(1),
+              marginBottom: 0,
+            }}
+          >
+            {post.frontmatter.title}
           </h1>
+          <p
+            style={{
+              ...scale(-1 / 5),
+              display: `block`,
+              marginBottom: rhythm(1),
+            }}
+          >
+            {post.frontmatter.date}
+          </p>
         </header>
-      </div>
+        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+      </article>
+
+      <Bio />
+
+      <nav>
+        <ul
+          style={{
+            display: `flex`,
+            flexWrap: `wrap`,
+            justifyContent: `space-between`,
+            listStyle: `none`,
+            padding: 0,
+          }}
+        >
+          <li>
+            {previous && (
+              <Link to={previous.fields.slug} rel="prev">
+                ← {previous.frontmatter.title}
+              </Link>
+            )}
+          </li>
+          <li>
+            {next && (
+              <Link to={next.fields.slug} rel="next">
+                {next.frontmatter.title} →
+              </Link>
+            )}
+          </li>
+        </ul>
+      </nav>
       <footer>
-        THIS IS A FOOTER: in the future add copyright and email linky
+        <EmailListForm/>
       </footer>
     </Layout>
   )
@@ -30,4 +89,23 @@ const ProjectTemplate = ({ data, pageContext, location }) => {
 
 export default ProjectTemplate
 
-// export const
+export const pageQuery = graphql`
+  query ProjectBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
+      excerpt(pruneLength: 160)
+      html
+      frontmatter {
+        title
+        type
+        date(formatString: "MMMM DD, YYYY")
+        description
+      }
+    }
+  }
+`

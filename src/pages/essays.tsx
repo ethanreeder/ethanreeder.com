@@ -1,4 +1,5 @@
 // Gatsby supports TypeScript natively!
+// @ts-ignore
 import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
@@ -9,6 +10,7 @@ import SEO from "../components/seo"
 
 import Layout from "../layouts/layout"
 import Sidebar from "../layouts/sidebar"
+import EssayPreview from "../components/essay-preview"
 
 type Data = {
   site: {
@@ -41,21 +43,22 @@ const EssayIndex = ({ data, location }: PageProps<Data>) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Resonance essay project" />
-      <h1>resonance essay project</h1>
+      <h1>Essays</h1>
+      <h3>I call this essay project resonance because it sounds nice</h3>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
           <article key={node.fields.slug}>
             <header>
-              <h3 style={{ marginBottom: rhythm(1 / 8), }}>
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+              <h3 style={{ marginBottom: rhythm(1/8), textDecoration: 'none' }}>
+                <Link style={{ boxShadow: `none`, textDecoration: 'none', color: Color.ERBlack }} to={node.fields.slug}>
                   {title}
                 </Link>
               </h3>
               <text style={styles.dateTextStyle}>{node.frontmatter.date}</text>
             </header>
+            {/*<text style={styles.descriptionTextStyle}>{node.frontmatter.description}</text>*/}
             <section>
-              {/*<text style={styles.descriptionTextStyle}>{node.frontmatter.description}</text>*/}
               <p
                 dangerouslySetInnerHTML={{
                   __html: node.frontmatter.description || node.excerpt,
@@ -78,7 +81,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: {frontmatter: {type: {eq: "essay"}}, fields: {}}
+    ) {
       edges {
         node {
           excerpt
@@ -89,6 +95,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            type
           }
         }
       }

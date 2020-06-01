@@ -4,7 +4,11 @@ import { Link, navigate } from "gatsby"
 import { rhythm, scale } from "../utils/typography"
 import Color from "../constants/color"
 
-class StandardButton extends React.Component {
+
+// TODO: ACTUALLY BUILD THIS
+
+
+class HoverLinkText extends React.Component {
   constructor(props) {
     super(props)
 
@@ -49,4 +53,4 @@ class StandardButton extends React.Component {
 
 }
 
-export default StandardButton
+export default HoverLinkText

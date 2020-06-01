@@ -1,4 +1,6 @@
 // Gatsby supports TypeScript natively!
+
+// @ts-ignore
 import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
 
@@ -38,7 +40,8 @@ const ProjectIndex = ({ data, location }: PageProps<Data>) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
+      <h1>Projects</h1>
+      <h3>Things I've made</h3>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
@@ -78,7 +81,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: {frontmatter: {type: {eq: "project"}}, fields: {}}
+    ) {
       edges {
         node {
           excerpt
@@ -89,6 +95,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            type
           }
         }
       }
