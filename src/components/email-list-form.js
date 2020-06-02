@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import addToMailchimp from "gatsby-plugin-mailchimp"
 import Color from "../constants/color"
 
@@ -27,7 +27,7 @@ class EmailListForm extends React.Component {
   render() {
     return(
       <form onSubmit={this.handleSubmit}>
-        <h2>Get an email when I publish a new essay:</h2>
+        <h3>Get an email when I publish a new essay:</h3>
         <div style={{display: `flex`, flexDirection: `column`}}>
           <input
             placeholder="Enter your email..."

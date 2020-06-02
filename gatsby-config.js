@@ -1,12 +1,15 @@
+const owner = 'Ethan Reeder'
+const url = 'ethanreeder.com'
+
 module.exports = {
   siteMetadata: {
-    title: `Ethan Reeder`,
+    title: `${owner}`,
     author: {
-      name: `Ethan Reeder`,
+      name: `${owner}`,
       summary: `who lives and works in San Francisco building useful things.`,
     },
     description: `A site presenting my thought and work.`,
-    siteUrl: `https://ethanreeder.com`,
+    siteUrl: `https://${url}`,
     social: {
       twitter: `ethanreeder`,
     },
@@ -89,6 +92,13 @@ module.exports = {
         endpoint: 'https://ethanreeder.us10.list-manage.com/subscribe/post?u=e863f1c63d1c5031d28d9b74c&amp;id=70111eb712',
       },
     },
+    // TODO: maybe later
+    // {
+    //   resolve: 'gatsby-plugin-simple-analytics',
+    //   options: {
+    //     domain: `sa.${url}`
+    //   }
+    // }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

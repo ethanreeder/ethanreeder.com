@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import GatsbyImage from "gatsby-image"
 
-const ProjectPreviewCard = ({ slug }) => {
+const ProjectPreviewCard = ({ slug: any, }) => {
     return (
     <div class="project-preview-card">
         <Link to={`/${slug}/`}>
@@ -18,6 +18,8 @@ const ProjectPreviewCard = ({ slug }) => {
     </div>
     )
 }
+
+export default ProjectPreviewCard
 
 // export const query = graphql`
 //     query {

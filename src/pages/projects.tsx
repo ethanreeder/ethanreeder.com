@@ -9,6 +9,8 @@ import Layout from "../layouts/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
+import ProjectPreview from "../components/project-preview"
+
 type Data = {
   site: {
     siteMetadata: {
@@ -40,12 +42,13 @@ const ProjectIndex = ({ data, location }: PageProps<Data>) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <h1>Projects</h1>
+      <h1 style={{marginTop: rhythm(1),}}>Projects</h1>
       <h3>Things I've made</h3>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
           <article key={node.fields.slug}>
+            {/*<ProjectPreview/>*/}
             <header>
               <h3
                 style={{

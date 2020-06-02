@@ -1,7 +1,7 @@
 import React from "react"
-import { Link, navigate } from "gatsby"
+// import { Link, navigate } from "gatsby"
 
-import { rhythm, scale } from "../utils/typography"
+// import { rhythm, scale } from "../utils/typography"
 import Color from "../constants/color"
 
 class StandardButton extends React.Component {

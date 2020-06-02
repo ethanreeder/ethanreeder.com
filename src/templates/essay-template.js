@@ -8,7 +8,7 @@ import { rhythm, scale } from "../utils/typography"
 
 import EmailListForm from "../components/email-list-form"
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+const EssayTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
@@ -45,14 +45,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             marginBottom: rhythm(1),
           }}
         />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
+        <Bio/>
       </article>
-
-      <Bio />
 
       <nav>
         <ul
@@ -87,7 +81,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   )
 }
 
-export default BlogPostTemplate
+export default EssayTemplate
 
 export const pageQuery = graphql`
   query EssayBySlug($slug: String!) {

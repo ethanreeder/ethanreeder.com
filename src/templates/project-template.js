@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../layouts/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
@@ -51,8 +50,6 @@ const ProjectTemplate = ({ data, pageContext, location }) => {
           }}
         />
       </article>
-
-      <Bio />
 
       <nav>
         <ul

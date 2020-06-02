@@ -4,6 +4,7 @@ import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
 import Color from "../constants/color"
+import Prose from "../constants/prose"
 
 import Bio from "../components/bio"
 import SEO from "../components/seo"
@@ -43,28 +44,32 @@ const EssayIndex = ({ data, location }: PageProps<Data>) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Resonance essay project" />
-      <h1>Essays</h1>
-      <h3>I call this essay project resonance because it sounds nice</h3>
+      <h1 style={{marginTop: rhythm(1),}}>Resonance Essay Project</h1>
+      <br/>
+      <text>{Prose.ResonanceDescription}</text>
+      <br/>
+      <br/>
+      <br/>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
           <article key={node.fields.slug}>
             <header>
-              <h3 style={{ marginBottom: rhythm(1/8), textDecoration: 'none' }}>
-                <Link style={{ boxShadow: `none`, textDecoration: 'none', color: Color.ERBlack }} to={node.fields.slug}>
+              <div style={{ marginBottom: rhythm(1/4)}}>
+                <text style={styles.dateTextStyle}>{`${node.frontmatter.date}\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0`}</text>
+                <Link style={{ boxShadow: `none`, color: Color.ERBlack }} to={node.fields.slug}>
                   {title}
                 </Link>
-              </h3>
-              <text style={styles.dateTextStyle}>{node.frontmatter.date}</text>
+              </div>
             </header>
             {/*<text style={styles.descriptionTextStyle}>{node.frontmatter.description}</text>*/}
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
+            {/*<section>*/}
+            {/*  <p*/}
+            {/*    dangerouslySetInnerHTML={{*/}
+            {/*      __html: node.frontmatter.description || node.excerpt,*/}
+            {/*    }}*/}
+            {/*  />*/}
+            {/*</section>*/}
           </article>
         )
       })}
@@ -92,7 +97,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "YYYY.MM.DD")
             title
             description
             type
@@ -105,7 +110,7 @@ export const pageQuery = graphql`
 
 const styles = {
   dateTextStyle: {
-    fontSize: 12,
+    fontSize: 16,
     color: Color.ERMidGray,
     // fontFamily:
   },
@@ -113,5 +118,10 @@ const styles = {
     fontSize: 12,
     color: Color.ERMidGray,
     // fontFamily:
+  },
+  titleTextStyle: {
+    fontSize: 16,
+    color: Color.ERBlack,
+
   }
 }
