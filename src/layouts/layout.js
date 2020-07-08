@@ -53,7 +53,7 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div style={{ display: `flex`, flexDirection: `row`, minHeight: `100%` }}>
-      <div style={{ display: `flex`, width: rhythm(20), justifyContent: 'flex-end', minHeight: `100%` }}>
+      <div style={{ display: `flex`, minWidth: '25%', justifyContent: 'flex-end', minHeight: `100%` }}>
         <div style={{ marginTop: rhythm(1), position: `fixed`, }}>
           <Sidebar location={location}/>
         </div>

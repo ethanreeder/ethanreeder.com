@@ -21,11 +21,13 @@ const Contact = ({ data, location }) => {
       <text></text>
       <br/>
       <br/>
-      <text>{`If you're interested in the stuff I write or think about, we should be better friends.`}</text>
+      <br/>
+      <text>{`If you're interested in the stuff I write or think about, we should talk. I'm a huge proponent of making friends on the internet, and I don't know why it isn't done more frequently.`}</text>
+      <br/>
       <br/>
       <br/>
       <text>{`Send me a note at \xa0`}</text>
-      <CopyToClipboardText minWidth={`225px`} text={"hi.ethan.reeder@gmail.com"}/>
+      <CopyToClipboardText minWidth={`215px`} text={"hi.ethan.reeder@gmail.com"} fontSize={`16px`}/>
       <text>{`\xa0 — coffee's on me.`}</text>
     </Layout>
   )

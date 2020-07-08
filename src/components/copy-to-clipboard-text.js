@@ -23,7 +23,9 @@ class CopyToClipboardText extends React.Component {
         <CopyToClipboard text={this.props.text}
                          onCopy={() => this.handleOnCopy()}>
           <button style={{minWidth: this.props.minWidth ? this.props.minWidth : ``}}>
-            {this.state.copied ? `copied to clipboard!` : this.props.text}
+            <text style={{fontSize: this.props.fontSize}}>
+              {this.state.copied ? `copied to clipboard!` : this.props.text}
+            </text>
           </button>
         </CopyToClipboard>
       </span>

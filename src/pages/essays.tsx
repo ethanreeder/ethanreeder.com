@@ -28,6 +28,7 @@ type Data = {
           date: string
           description: string
           type: string
+          published: boolean
         }
         fields: {
           slug: string
@@ -88,7 +89,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: {frontmatter: {type: {eq: "essay"}}, fields: {}}
+      filter: {frontmatter: {type: {eq: "essay"}, published: {eq: true}}, fields: {}}
     ) {
       edges {
         node {

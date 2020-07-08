@@ -1,6 +1,6 @@
 import Typography from "typography"
 import gray from "gray-percentage"
-import usWebDesignStandardsTheme from 'typography-theme-us-web-design-standards'
+// import usWebDesignStandardsTheme from 'typography-theme-us-web-design-standards'
 
 // usWebDesignStandardsTheme.overrideThemeStyles = () => ({
 //   headerFontFamily: ["Roboto", "sans-serif"],

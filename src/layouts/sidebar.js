@@ -13,6 +13,7 @@ const Sidebar = ({ location }) => {
       <StandardButton onClick={() => navigate("/")} text={`Home`}></StandardButton>
       <StandardButton onClick={() => navigate("/essays")} text={`Essays`}></StandardButton>
       <StandardButton onClick={() => navigate("/projects")} text={`Projects`}></StandardButton>
+      <StandardButton onClick={() => navigate("/imprints")} text={`Imprints`}></StandardButton>
       <StandardButton onClick={() => navigate("/resume")} text={`Resume`}></StandardButton>
       <StandardButton onClick={() => navigate("/contact")} text={`Contact`}></StandardButton>
     </div>

@@ -25,17 +25,21 @@ class ExperienceItem extends React.Component {
 
   render() {
     return(
-      <div>
-        <h3 style={{marginBottom: rhythm(1/8)}}>{this.props.jobTitle}</h3>
-        <a
-          style={styles.linkStyle}
-          href={this.props.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {this.props.organization}
-        </a>
-        {this.renderListItems(this.props.bullets)}
+      <div style={{display: `flex`, flexDirection: `row`}}>
+        <div style={{display: `flex`, flexDirection: `column`, minWidth: rhythm(10)}}>
+          <h3 style={{marginBottom: rhythm(1/8)}}>{this.props.jobTitle}</h3>
+          <a
+            style={styles.linkStyle}
+            href={this.props.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {this.props.organization}
+          </a>
+        </div>
+        <div style={{display: `flex`, flexDirection: `column`}}>
+          {this.renderListItems(this.props.bullets)}
+        </div>
       </div>
     )
   }
